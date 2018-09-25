@@ -1,0 +1,12 @@
+{
+  "mysql": {
+    "host": "localhost",
+    "port": "3306",
+    "name": "event_maker",
+    "user": "user",
+    "pass": "pass"
+  },
+  "jwt": {
+    "secret_key": "secret_key_here"
+  }
+}
