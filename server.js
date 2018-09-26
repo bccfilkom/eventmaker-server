@@ -2,7 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
+const { ApolloServer, gql } = require("apollo-server-express");
 const jwtMw = require("./middlewares/Jwt");
+const typeDefs = require("./internal/typeDefs");
+const resolvers = require("./internal/resolvers");
 
 const app = express();
 
@@ -22,11 +25,14 @@ app.use(
 
 app.use(bodyParser.json());
 
-app.use(jwtMw);
+// app.use(jwtMw);
 
 app.get("/", (req, res) => {
   res.status(200).send(null);
 });
+
+const apolloServer = new ApolloServer({ typeDefs, resolvers });
+apolloServer.applyMiddleware({ app });
 
 // error handler middleware
 app.use((err, req, res, next) => {

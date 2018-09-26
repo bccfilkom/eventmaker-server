@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/bccfilkom/eventmaker-server#readme",
   "dependencies": {
+    "apollo-server-express": "^2.1.0",
     "bcrypt": "^3.0.1",
     "body-parser": "^1.18.3",
     "config": "^2.0.1",
