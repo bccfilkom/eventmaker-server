@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Event);
+    user.hasMany(models.Joined)
   };
   return User;
 };

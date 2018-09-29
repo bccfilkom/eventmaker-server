@@ -9,7 +9,13 @@ module.exports = (sequelize, DataTypes) => {
     createdBy: DataTypes.STRING
   }, {});
   Event.associate = function(models) {
-    // associations can be defined here
+    Event.hasOne(models.User, {
+      foreignKey: {
+        name: 'nim',
+        allowNull: false
+      }
+    });
+    Event.hasMany(models.Joined);
   };
   return Event;
 };
