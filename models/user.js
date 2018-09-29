@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     User.hasMany(models.Event);
-    user.hasMany(models.Joined)
+    user.hasMany(models.Joined);
   };
   return User;
 };
