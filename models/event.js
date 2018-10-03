@@ -1,21 +1,25 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Event = sequelize.define('Event', {
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    time: DataTypes.DATE,
-    reg_time: DataTypes.DATE,
-    place: DataTypes.STRING,
-    createdBy: DataTypes.STRING
-  }, {});
+  const Event = sequelize.define(
+    "Event",
+    {
+      name: DataTypes.STRING,
+      description: DataTypes.STRING,
+      time: DataTypes.DATE,
+      regTime: DataTypes.DATE,
+      place: DataTypes.STRING,
+      createdBy: DataTypes.STRING
+    },
+    {}
+  );
   Event.associate = function(models) {
-    Event.hasOne(models.User, {
+    Event.belongsTo(models.User, {
       foreignKey: {
-        name: 'nim',
+        name: "createdBy",
         allowNull: false
-      }
+      },
+      targetKey: "nim"
     });
-    Event.hasMany(models.Joined);
   };
   return Event;
 };

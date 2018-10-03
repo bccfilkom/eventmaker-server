@@ -20,7 +20,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      reg_time: {
+      regTime: {
         allowNull: false,
         type: Sequelize.DATE
       },
